@@ -47,11 +47,36 @@ expect(numbers).to.be.an('array').that.includes(1);
 (numbers).should.be.an('array').that.includes(1);
 assert.isArray(numbers, 'numbers is not array');
 
+// should extras
+function writeToAFile(error) {
+  // normal scenario
+  // error.should.not.exist(); // this won't work
+
+  // given that error is undefined
+  should.not.exist(error);
+}
+writeToAFile(undefined);
+
+/* 
 // should - BDD style Chai interface. expect is also BDD style
+// should doesn't work on IE. It extends Object.Prototype
 // The main difference is that should extends each object with a should property to start the chain.
 // assert - TDD style
 
-
-
 // It is always a good practice to use a or an to check target type before performing assertion on it. 
 // This will avoid unexpected behavior or errors that may occur when performing the assertions on the target type. So, chaining helps in such scenarios.
+
+// should extras
+should.exist
+should.not.exist
+should.equal
+should.not.equal
+should.Throw
+should.not.Throw
+
+Chai Configurations
+chai.config.includeStack - false by default
+chai.config.showDiff - true by defaul
+chai.config.truncateThreshold - 40 by default
+
+*/
